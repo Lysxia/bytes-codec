@@ -1,0 +1,24 @@
+name:                bytes-codec
+version:             0.1.0.0
+synopsis:            Bidirectional serialization for binary and cereal
+description:
+  Generalization of the binary interface of the codec package using the bytes
+  package.
+license:             MIT
+license-file:        LICENSE
+author:              Li-yao Xia
+maintainer:          lysxia@gmail.com
+category:            Data
+build-type:          Simple
+cabal-version:       >=1.10
+
+library
+  exposed-modules:
+    Data.Bytes.Codec
+  build-depends:
+    base >=4.9 && <4.10,
+    bytes,
+    bytestring,
+    codec
+  hs-source-dirs:      src
+  default-language:    Haskell2010
