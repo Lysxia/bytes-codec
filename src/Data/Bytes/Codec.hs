@@ -15,39 +15,39 @@ byteString :: Int -> BinaryCodec ByteString
 byteString n = Codec
   { parse = getBytes n
   , produce = \bs -> if BS.length bs == n
-      then putByteString bs
+      then putByteString bs *> pure bs
       else fail "ByteString wrong size for field."
   }
 
 word8 :: BinaryCodec Word8
-word8 = Codec getWord8 putWord8
+word8 = codec getWord8 putWord8
 
 word16be :: BinaryCodec Word16
-word16be = Codec getWord16be putWord16be
+word16be = codec getWord16be putWord16be
 
 word16le :: BinaryCodec Word16
-word16le = Codec getWord16le putWord16le
+word16le = codec getWord16le putWord16le
 
 word16host :: BinaryCodec Word16
-word16host = Codec getWord16host putWord16host
+word16host = codec getWord16host putWord16host
 
 word32be :: BinaryCodec Word32
-word32be = Codec getWord32be putWord32be
+word32be = codec getWord32be putWord32be
 
 word32le :: BinaryCodec Word32
-word32le = Codec getWord32le putWord32le
+word32le = codec getWord32le putWord32le
 
 word32host :: BinaryCodec Word32
-word32host = Codec getWord32host putWord32host
+word32host = codec getWord32host putWord32host
 
 word64be :: BinaryCodec Word64
-word64be = Codec getWord64be putWord64be
+word64be = codec getWord64be putWord64be
 
 word64le :: BinaryCodec Word64
-word64le = Codec getWord64le putWord64le
+word64le = codec getWord64le putWord64le
 
 word64host :: BinaryCodec Word64
-word64host = Codec getWord64host putWord64host
+word64host = codec getWord64host putWord64host
 
 wordhost :: BinaryCodec Word
-wordhost = Codec getWordhost putWordhost
+wordhost = codec getWordhost putWordhost
